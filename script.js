@@ -23,7 +23,7 @@ function addToCart(itemName) {
 }
 document.addEventListener("DOMContentLoaded", function () {
   const cartButton = document.getElementById("view-cart-btn");
-  console.log(cartButton); // Check if the button is found
+  console.log(cartButton);
 
   if (cartButton) {
     cartButton.addEventListener("click", function () {
@@ -48,4 +48,15 @@ function displayCart() {
   });
 
   totalPriceElement.textContent = `Total Price: $${totalPrice}`;
+}
+function validateCreditCardNumber() {
+  const cardNumber = document.getElementById("cardNumber").value;
+  const cleanedCardNumber = cardNumber.replace(/\s/g, "").replace(/-/g, "");
+
+  if (!/^\d{13,16}$/.test(cleanedCardNumber)) {
+    console.log("Invalid credit card number.");
+    return;
+  }
+
+  console.log("The credit card number is valid.");
 }
