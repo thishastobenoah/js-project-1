@@ -3,30 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap" rel="stylesheet">
   </head>
+
+  <div class="container">
+
   <body>
    
     <main>
-       <div id="cart-container">
-        <form id="creditCardForm">
-          <label for="cardNumber">Credit Card Number:</label>
-          <input
-            type="number"
-            id="cardNumber"
-            name="cardNumber"
-            placeholder="Enter a 16-digit number"
-          />
-          <button type="button" onclick="validateCreditCardNumber()">Submit</button>
-        </form>
-        <div id="cart-container">
-      <h2>Shopping Cart</h2>
-      <button id="view-cart-btn">View Cart</button>
-      <ul id="cart-items"></ul>
-      <p id="total-price"></p>
-      <button id="cash-payment-btn" onclick="processCashPayment()">Pay with Cash</button>
-      <div id="receipt-container"></div>
-    </div>
+       
         <header>Cafe Java{Script}</header>
             <h1>hot</h1>
                 <h3>
@@ -101,7 +87,7 @@
 
             <h1>seasonal</h1>
                 <h3>
-                    gingerbread latter $4.5
+                    gingerbread latte $4.5
                 </h3>
                 <h4>
                     delicious spiced syrup added to our classic latte
@@ -144,10 +130,30 @@
                 <h4>
                     vanilla greek yogurt with seasonal berries and our house-made cinnamon granola
                 </h4>
+
+                <div id="cart-container">
+                    <form id="creditCardForm">
+                      <label for="cardNumber">Credit Card Number:</label>
+                      <input
+                        type="number"
+                        id="cardNumber"
+                        name="cardNumber"
+                        placeholder="Enter a 16-digit number"
+                      />
+                      <button type="button" onclick="validateCreditCardNumber()">Submit</button>
+                    </form>
+                    <div id="cart-container">
+                  <h2>Shopping Cart</h2>
+                  <button id="view-cart-btn">View Cart</button>
+                  <ul id="cart-items"></ul>
+                  <p id="total-price"></p>
+                  <button id="cash-payment-btn" onclick="processCashPayment()">Pay with Cash</button>
+                  <div id="receipt-container"></div>
+                </div>
                 
                 
-        <footer>
-            <ol>
+        <footer class="list-container">
+            <ol class="horizontal-list">
                 <li>
                     Cafe Java{Script}
                 </li>
@@ -163,6 +169,7 @@
 
     </main>
 </body>
+</div>
 <script src="script.js"></script>
 </html>
 
