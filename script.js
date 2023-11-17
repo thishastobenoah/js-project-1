@@ -60,3 +60,31 @@ function validateCreditCardNumber() {
 
   console.log("The credit card number is valid.");
 }
+
+
+function processCashPayment() {
+  const totalAmount = calculateTotalAmount();
+  
+  displayReceipt("Cash", totalAmount);
+  
+  cart = [];
+  displayCart();
+}
+
+function calculateTotalAmount() {
+  let totalPrice = 0;
+  cart.forEach((item) => {
+    totalPrice += item.price;
+  });
+  return totalPrice;
+}
+
+function displayReceipt(paymentMethod, totalAmount) 
+  const receiptContainer = document.getElementById("receipt-container");
+
+  const receiptContent = document.createElement("div");
+
+  receiptContent.innerHTML = `<p>Payment Method: ${paymentMethod}</p><p>Total Amount: $${totalAmount.toFixed(2)}</p>`;
+
+  receiptContainer.appendChild(receiptContent);
+}
