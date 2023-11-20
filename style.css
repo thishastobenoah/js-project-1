@@ -161,6 +161,10 @@ footer {
     #cart-container {
         margin-top: 100px;
     }
+
+    #cart-container h2 {
+        color: #DC9687;
+    }
         
 
     /* ol {
