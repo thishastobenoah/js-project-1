@@ -79,7 +79,7 @@ function calculateTotalAmount() {
   return totalPrice;
 }
 
-function displayReceipt(paymentMethod, totalAmount) 
+function displayReceipt(paymentMethod, totalAmount) {
   const receiptContainer = document.getElementById("receipt-container");
 
   const receiptContent = document.createElement("div");
