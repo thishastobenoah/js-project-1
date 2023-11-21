@@ -38,11 +38,15 @@ h1 {
 h3 {
     color: #DC9687;
     font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 h4 {
     color: #DC9687;
     font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .list-container {
@@ -50,7 +54,8 @@ h4 {
     width: 100vw;
     background-color: #DC9687;
     bottom: 0;
-    padding: 0;
+    left: 0;
+    padding: 8px;
     margin: 0;
     border: 10px double #5E3203;
 
@@ -177,7 +182,7 @@ footer {
         background-color: #5E3203;
         bottom: 0;
         left: 0;
-        padding: 0;
+        padding: 8px;
         margin: 0;
         border: 10px double #DC9687;
     }
@@ -194,6 +199,10 @@ footer {
 
     #cart-container {
         margin-top: 100px;
+    }
+
+    #cart-container h2 {
+        color: #DC9687;
     }
         
 
