@@ -64,11 +64,29 @@ function validateCreditCardNumber() {
 
 function processCashPayment() {
   const totalAmount = calculateTotalAmount();
-  
-  displayReceipt("Cash", totalAmount);
-  
+  const amountTendered = promptForAmountTendered();
+
+  if (isNaN(amountTendered)) {
+    console.log("Invalid amount tendered.");
+    return;
+  }
+
+  const change = amountTendered - totalAmount;
+
+  if (change < 0) {
+    console.log("Insufficient funds.");
+    return;
+  }
+
+  displayReceipt("Cash", totalAmount, change);
+
   cart = [];
   displayCart();
+}
+
+function promptForAmountTendered() {
+  const amountTendered = prompt("Enter the amount tendered:");
+  return parseFloat(amountTendered);
 }
 
 function calculateTotalAmount() {
@@ -79,12 +97,31 @@ function calculateTotalAmount() {
   return totalPrice;
 }
 
-function displayReceipt(paymentMethod, totalAmount) {
-  const receiptContainer = document.getElementById("receipt-container");
+function displayReceipt(paymentMethod, totalAmount, change) {
+  var modal = document.getElementById("receipt-modal");
+  var modalContent = document.getElementById("modal-content");
 
-  const receiptContent = document.createElement("div");
+  modalContent.innerHTML = `<p>Payment Method: ${paymentMethod}</p><p>Total Amount: $${totalAmount.toFixed(2)}</p><p>Change: $${change.toFixed(2)}</p>`;
 
-  receiptContent.innerHTML = `<p>Payment Method: ${paymentMethod}</p><p>Total Amount: $${totalAmount.toFixed(2)}</p>`;
+  var itemsList = document.createElement("ul");
+  cart.forEach((item) => {
+    let listItem = document.createElement("li");
+    listItem.textContent = `${item.name} - Price: $${item.price.toFixed(2)}`;
+    itemsList.appendChild(listItem);
+  });
+  modalContent.appendChild(itemsList);
 
-  receiptContainer.appendChild(receiptContent);
+  modal.style.display = "block";
+  document.getElementById("overlay").style.display = "block";
+
+  document.getElementById("overlay").addEventListener("click", closeModal);
+  document.getElementById("close-modal").addEventListener("click", closeModal);
+}
+
+
+function closeModal() {
+  var modal = document.getElementById("receipt-modal");
+
+  modal.style.display = "none";
+  document.getElementById("overlay").style.display = "none";
 }
