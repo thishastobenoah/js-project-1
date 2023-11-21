@@ -20,7 +20,7 @@ body {
     border: 15px double #DC9687;
     padding: 15px;
     margin: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 90px;
 }
 
 header {
@@ -150,6 +150,7 @@ footer {
         background-color: #DC9687;
         font-family: 'Grandiflora One', cursive;
         border: 15px double #5E3203;
+        margin-bottom: 90px;
     }
 
     header {
