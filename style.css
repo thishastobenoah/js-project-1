@@ -89,7 +89,8 @@ h4 {
 }
 
 #cart-container {
-    margin-top: 100px;
+    margin-top: 50px;
+    color: #DC9687;
 }
 
 
@@ -226,7 +227,8 @@ footer {
     }
 
     #cart-container {
-        margin-top: 100px;
+        margin-top: 50px;
+        color: #5E3203;
     }
 
     #cart-container h2 {
