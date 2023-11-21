@@ -147,7 +147,12 @@
                   <ul id="cart-items"></ul>
                   <p id="total-price"></p>
                   <button id="cash-payment-btn" onclick="processCashPayment()">Pay with Cash</button>
-                    <div id="receipt-container"></div>
+                  <div id="overlay"></div>
+                    <div id="receipt-modal">
+                        <h2 id="modal-title">Receipt</h2>
+                        <span id="close-modal" style="cursor: pointer;">&times;</span>
+                        <div id="modal-content"></div>
+                    </div>
                 </div>
                 
                 
