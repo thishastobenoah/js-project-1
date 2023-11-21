@@ -8,47 +8,112 @@ const items = [
   { name: "Chai Latte", price: 3.75 },
   { name: "Matcha", price: 5 },
   { name: "Hot Chocolate", price: 4 },
-  { name: "Blueberry Muffin", price: 3 },
+  { name: "Blueberry Scone", price: 3 },
   { name: "Pain aux Raisin", price: 3.75 },
   { name: "Avocado Sourdough Toast", price: 7.5 },
   { name: "Croissant", price: 2.5 },
   { name: "Yogurt, Berries, & Granola", price: 4.75 },
+  { name: "Iced Black Tea", price: 2.75},
+  { name: "Iced Matcha", price: 4},
+  { name: "Cold Brew Coffee", price: 3},
+  { name: "Iced Salted Caramel Latte", price: 4.75}
 ];
 
 let cart = [];
 
 function addToCart(itemName) {
   const selectedItem = items.find((item) => item.name === itemName);
-  cart.push(selectedItem);
+  const existingItem = cart.find((item) => item.name === itemName);
+
+  if (existingItem) {
+    // If the item is already in the cart, increase its quantity
+    existingItem.quantity += 1;
+  } else {
+    // If the item is not in the cart, create a new item object with a quantity of 1
+    const newItem = {
+      name: selectedItem.name,
+      price: selectedItem.price,
+      quantity: 1,
+    };
+    cart.push(newItem);
+  }
+
+  // After updating the cart, display it
+  displayCart();
 }
+
 document.addEventListener("DOMContentLoaded", function () {
   const cartButton = document.getElementById("view-cart-btn");
-  console.log(cartButton);
+  const cartContainer = document.getElementById("cart-items-container");
 
-  if (cartButton) {
+  if (cartButton && cartContainer) {
     cartButton.addEventListener("click", function () {
-      displayCart();
+      // Toggle the visibility of the cart container
+      cartContainer.style.display =
+        cartContainer.style.display === "none" ? "block" : "none";
+      // Display the cart if it's not currently visible
+      if (cartContainer.style.display === "block") {
+        displayCart();
+      }
     });
   }
 });
 
 function displayCart() {
-  const cartContainer = document.getElementById("cart-items");
-  const totalPriceElement = document.getElementById("total-price");
-
+  const cartContainer = document.getElementById("cart-items-container");
   let totalPrice = 0;
 
   cartContainer.innerHTML = "";
-  console.log(cart);
   cart.forEach((item) => {
     const listItem = document.createElement("li");
-    listItem.textContent = `${item.name} - Price: $${item.price}`;
-    cartContainer.appendChild(listItem);
-    totalPrice += item.price;
-  });
+    listItem.textContent = `${item.name} - Price: $${item.price} - Quantity: ${item.quantity}`;
 
-  totalPriceElement.textContent = `Total Price: $${totalPrice}`;
+const increaseButton = document.createElement("button");
+increaseButton.textContent = "+";
+increaseButton.addEventListener("click", function () {
+  increaseQuantity(item);
+});
+
+listItem.appendChild(increaseButton);
+
+const decreaseButton = document.createElement("button");
+decreaseButton.textContent = "-";
+decreaseButton.addEventListener("click", function () {
+  decreaseQuantity(item);
+});
+
+listItem.appendChild(decreaseButton);
+
+cartContainer.appendChild(listItem);
+totalPrice += item.price * item.quantity;
+});
+const totalPriceElement = document.createElement("div");
+  cartContainer.appendChild(totalPriceElement);
+  totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
 }
+
+function increaseQuantity(itemName) {
+  const existingItem = cart.find((item) => item.name === itemName.name);
+  if(existingItem){
+    existingItem.quantity += 1;
+  }
+  displayCart();
+}
+
+function decreaseQuantity(itemName) {
+  const existingItem = cart.find((item) => item.name === itemName.name);
+  if(existingItem && existingItem.quantity > 0){
+    existingItem.quantity -= 1;
+  }
+  cart.forEach((item) => {
+    if(item.quantity <= 0) {
+      cart.pop(item);
+    }
+  });
+  displayCart();
+}
+
+
 function validateCreditCardNumber() {
   const cardNumber = document.getElementById("cardNumber").value;
   const cleanedCardNumber = cardNumber.replace(/\s/g, "").replace(/-/g, "");
