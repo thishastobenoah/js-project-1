@@ -123,7 +123,7 @@ function validateCreditCardNumber() {
 
 
 function processCashPayment() {
-  const totalAmount = calculateTotalAmount();
+  const amounts = calculateTotalAmount();
   const amountTendered = promptForAmountTendered();
 
   if (isNaN(amountTendered)) {
@@ -131,14 +131,14 @@ function processCashPayment() {
     return;
   }
 
-  const change = amountTendered - totalAmount;
+  const change = amountTendered - amounts.totalAmount;
 
   if (change < 0) {
     console.log("Insufficient funds.");
     return;
   }
 
-  displayReceipt("Cash", totalAmount, change);
+  displayReceipt("Cash", amounts.totalAmount, change, amountTendered);
 
   cart = [];
   displayCart();
@@ -150,18 +150,37 @@ function promptForAmountTendered() {
 }
 
 function calculateTotalAmount() {
-  let totalPrice = 0;
+  let subtotal = 0;
   cart.forEach((item) => {
-    totalPrice += item.price * item.quantity;
+    subtotal += item.price * item.quantity;
   });
-  return totalPrice;
+
+  const salesTaxRate = 0.06;
+  const salesTax = subtotal * salesTaxRate;
+  const totalAmount = subtotal + salesTax;
+
+  return {
+    subtotal: subtotal,
+    salesTax: salesTax,
+    totalAmount: totalAmount,
+  };
 }
 
-function displayReceipt(paymentMethod, totalAmount, change) {
+
+function displayReceipt(paymentMethod, totalAmount, change, amountTendered) {
   var modal = document.getElementById("receipt-modal");
   var modalContent = document.getElementById("modal-content");
 
-  modalContent.innerHTML = `<p>Payment Method: ${paymentMethod}</p><p>Total Amount: $${totalAmount.toFixed(2)}</p><p>Change: $${change.toFixed(2)}</p>`;
+  const amounts = calculateTotalAmount();
+
+  modalContent.innerHTML = `
+    <p style="font-size: 18px;">Payment Method: ${paymentMethod}</p>
+    <p style="font-size: 18px;">Subtotal: $${amounts.subtotal.toFixed(2)}</p>
+    <p style="font-size: 18px;">Sales Tax (6%): $${amounts.salesTax.toFixed(2)}</p>
+    <p style="font-size: 18px;">Total Amount: $${amounts.totalAmount.toFixed(2)}</p>
+    <p style="font-size: 18px;">Amount Tendered: $${amountTendered.toFixed(2)}</p>
+    <p style="font-size: 18px;">Change: $${change.toFixed(2)}</p>
+  `;
 
   var itemsList = document.createElement("ul");
   cart.forEach((item) => {
@@ -177,6 +196,7 @@ function displayReceipt(paymentMethod, totalAmount, change) {
   document.getElementById("overlay").addEventListener("click", closeModal);
   document.getElementById("close-modal").addEventListener("click", closeModal);
 }
+
 
 
 function closeModal() {

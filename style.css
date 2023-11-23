@@ -142,7 +142,9 @@ footer {
     z-index: 1001;
     color: #5E3203;
     font-size: 20px;
+    font-weight: bold;
   }
+
 
   #modal-title {
     margin-bottom: 10px;
