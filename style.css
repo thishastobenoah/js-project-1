@@ -8,17 +8,37 @@
 button {
     background-color: #DC9687;
     color: #5E3203;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
 }
 
 button:hover {
     background-color: #5E3203;
     color: #DC9687;
+    border: 2px solid;
 }
+
+@keyframes blink {
+    40% {
+      opacity: 0;
+    }
+}
+  
+button:active {
+    animation: blink 1s infinite;
+}
+
+#cash-payment-btn {
+    padding: 10px;
+}
+
 
 .container {
     width: 100vw;
@@ -61,7 +81,7 @@ h3 {
 
 h4 {
     color: #DC9687;
-    font-weight: bold;
+    /* font-weight: bold; */
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -92,33 +112,6 @@ h4 {
     margin-top: 50px;
     color: #DC9687;
 }
-
-
-/* ol {
-    list-style: none;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-}
-
-footer {
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    padding: 3px;
-    background-color: #DC9687;
-    width: 100vw;
-    color: #5E3203;
-    opacity: 80%;
-
-} */
-
-
-/* font-family: 'Grandiflora One', cursive; */
-
 
 #overlay {
     display: none;
@@ -154,12 +147,28 @@ footer {
     button {
         background-color: #5E3203;
         color: #DC9687;
+        padding: 10px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        width: 100px;
+        height: 40px;
+        font-size: 15px;
     }
 
     button:hover {
         background-color: #DC9687;
         color: #5E3203;
+        border: 2px solid;
     }
+    @keyframes blink {
+        40% {
+          opacity: 0;
+        }
+      }
+      
+      button:active {
+        animation: blink 1s infinite;
+      }
     #receipt-modal {
         padding: 40px;
       }
@@ -234,28 +243,4 @@ footer {
     #cart-container h2 {
         color: #5E3203;
     }
-        
-
-    /* ol {
-        list-style-type: none;
-        text-align: center;   
-        display: flex;
-        justify-content: space-between;
-    }
-
-    footer {
-        display: flex;
-        justify-content: space-between;
-        position: sticky;
-        text-align: centered;
-        bottom: 0;
-        left: 0;
-        margin: 0;    
-        padding: 3px;
-        background-color: #5E3203;
-        width: 100vw;
-        color: #DC9687;
-        opacity: 80%;
-    } */
-
 }
