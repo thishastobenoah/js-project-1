@@ -1,248 +1,239 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
 button {
-    background-color: #DC9687;
-    color: #5E3203;
+  background-color: #dc9687;
+  color: #5e3203;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: #5e3203;
+  color: #dc9687;
+  border: 2px solid;
+}
+
+@keyframes blink {
+  40% {
+    opacity: 0;
+  }
+}
+
+button:active {
+  animation: blink 1s infinite;
+}
+
+#cash-payment-btn {
+  padding: 10px;
+}
+
+.container {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body {
+  background-color: #5e3203;
+  font-family: "Grandiflora One", cursive;
+  border: 15px double #dc9687;
+  padding: 15px;
+  margin: 20px;
+  margin-bottom: 90px;
+}
+
+header {
+  color: #dc9687;
+  text-align: center;
+  font-size: 75px;
+}
+
+h1 {
+  color: #dc9687;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+h3 {
+  color: #dc9687;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+h4 {
+  color: #dc9687;
+  /* font-weight: bold; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.list-container {
+  position: fixed;
+  width: 100vw;
+  background-color: #dc9687;
+  bottom: 0;
+  left: 0;
+  padding: 8px;
+  margin: 0;
+  border: 10px double #5e3203;
+}
+
+.horizontal-list {
+  display: flex;
+  list-style-type: none;
+  padding: 3px;
+  color: #5e3203;
+  font-weight: bold;
+  text-align: center;
+  justify-content: space-around;
+}
+
+#cart-container {
+  margin-top: 50px;
+  color: #dc9687;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+#receipt-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #dc9687;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  color: #5e3203;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#modal-title {
+  margin-bottom: 10px;
+  color: #5e3203 !important;
+}
+
+@media screen and (min-width: 768px) {
+  button {
+    background-color: #5e3203;
+    color: #dc9687;
     padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
     margin-top: 15px;
     margin-bottom: 20px;
     width: 100px;
     height: 40px;
     font-size: 15px;
-}
+  }
 
-button:hover {
-    background-color: #5E3203;
-    color: #DC9687;
+  button:hover {
+    background-color: #dc9687;
+    color: #5e3203;
     border: 2px solid;
-}
-
-@keyframes blink {
+  }
+  @keyframes blink {
     40% {
       opacity: 0;
     }
-}
-  
-button:active {
+  }
+
+  button:active {
     animation: blink 1s infinite;
-}
+  }
+  #receipt-modal {
+    padding: 40px;
+  }
 
-#cash-payment-btn {
-    padding: 10px;
-}
-
-
-.container {
+  .container {
     width: 100vw;
     max-width: 100vw;
     margin: 0 auto;
-    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
+  }
 
-}
-
-body {
-    background-color: #5E3203;
-    font-family: 'Grandiflora One', cursive;
-    border: 15px double #DC9687;
-    padding: 15px;
-    margin: 20px;
+  body {
+    background-color: #dc9687;
+    font-family: "Grandiflora One", cursive;
+    border: 15px double #5e3203;
     margin-bottom: 90px;
-}
+  }
 
-
-header {
-    color: #DC9687;
-    text-align: center;
+  header {
+    color: #5e3203;
     font-size: 75px;
-}
+    text-align: center;
+  }
 
-h1 {
-    color: #DC9687;
-    font-weight: bold;
-    margin-top: 50px;
-}
+  h1 {
+    color: #5e3203;
+  }
 
-h3 {
-    color: #DC9687;
-    font-weight: bold;
+  h3 {
+    color: #5e3203;
+    font-size: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
-}
+  }
 
-h4 {
-    color: #DC9687;
-    /* font-weight: bold; */
+  h4 {
+    color: #5e3203;
     margin-top: 10px;
     margin-bottom: 10px;
-}
+  }
 
-.list-container {
+  .list-container {
     position: fixed;
     width: 100vw;
-    background-color: #DC9687;
+    background-color: #5e3203;
     bottom: 0;
     left: 0;
     padding: 8px;
     margin: 0;
-    border: 10px double #5E3203;
+    border: 10px double #dc9687;
+  }
 
-}
-
-.horizontal-list {
+  .horizontal-list {
     display: flex;
     list-style-type: none;
-    padding: 3px;
-    color: #5E3203;
-    font-weight: bold;
     text-align: center;
     justify-content: space-around;
-}
-
-#cart-container {
-    margin-top: 50px;
-    color: #DC9687;
-}
-
-#overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-  }
-  
-  #receipt-modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #DC9687;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1001;
-    color: #5E3203;
-    font-size: 20px;
+    padding: 3px;
+    color: #dc9687;
     font-weight: bold;
   }
 
-
-  #modal-title {
-    margin-bottom: 10px;
-    color: #5E3203!important;
+  #cart-container {
+    margin-top: 50px;
+    color: #5e3203;
   }
 
-@media screen and (min-width: 768px) {
-    button {
-        background-color: #5E3203;
-        color: #DC9687;
-        padding: 10px;
-        margin-top: 15px;
-        margin-bottom: 20px;
-        width: 100px;
-        height: 40px;
-        font-size: 15px;
-    }
-
-    button:hover {
-        background-color: #DC9687;
-        color: #5E3203;
-        border: 2px solid;
-    }
-    @keyframes blink {
-        40% {
-          opacity: 0;
-        }
-      }
-      
-      button:active {
-        animation: blink 1s infinite;
-      }
-    #receipt-modal {
-        padding: 40px;
-      }
-
-    .container {
-        width: 100vw;
-        max-width: 100vw;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-
-    body {
-        background-color: #DC9687;
-        font-family: 'Grandiflora One', cursive;
-        border: 15px double #5E3203;
-        margin-bottom: 90px;
-    }
-
-    header {
-        color: #5E3203;
-        font-size: 75px;
-        text-align: center;
-    }
-
-    h1 {
-        color: #5E3203;
-        
-    }
-
-    h3 {
-        color: #5E3203;
-        font-size: 20px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
-    h4 {
-        color: #5E3203;
-        margin-top: 10px;
-        margin-bottom: 10px;
-
-    }
-
-    .list-container {
-        position: fixed;
-        width: 100vw;
-        background-color: #5E3203;
-        bottom: 0;
-        left: 0;
-        padding: 8px;
-        margin: 0;
-        border: 10px double #DC9687;
-    }
-    
-    .horizontal-list {
-        display: flex;
-        list-style-type: none;
-        text-align: center;
-        justify-content: space-around;
-        padding: 3px;
-        color: #DC9687;
-        font-weight: bold;
-    }
-
-    #cart-container {
-        margin-top: 50px;
-        color: #5E3203;
-    }
-
-    #cart-container h2 {
-        color: #5E3203;
-    }
+  #cart-container h2 {
+    color: #5e3203;
+  }
 }
