@@ -16,6 +16,13 @@ button {
   width: 100px;
   height: 40px;
   font-size: 15px;
+  background-color: #dc9687;
+  color: #5e3203;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
@@ -36,6 +43,8 @@ button:active {
 
 #cash-payment-btn {
   padding: 10px;
+  background-color: #5e3203;
+  color: #dc9687;
 }
 
 .container {
@@ -80,6 +89,10 @@ h4 {
   /* font-weight: bold; */
   margin-top: 10px;
   margin-bottom: 10px;
+  color: #dc9687;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .list-container {
@@ -106,7 +119,33 @@ h4 {
 #cart-container {
   margin-top: 50px;
   color: #dc9687;
+
+  margin-top: 100px;
 }
+
+/* ol {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 3px;
+    background-color: #DC9687;
+    width: 100vw;
+    color: #5E3203;
+    opacity: 80%;
+
+} */
+
+/* font-family: 'Grandiflora One', cursive; */
 
 #overlay {
   display: none;
@@ -138,6 +177,19 @@ h4 {
   margin-bottom: 10px;
   color: #5e3203 !important;
 }
+#view-cart-btn {
+  margin: 10px;
+}
+#cash-payment-btn {
+  margin: 10px;
+}
+
+.increase-button {
+  margin: 10px;
+}
+.decrease-button {
+  margin-left: 5px;
+}
 
 @media screen and (min-width: 768px) {
   button {
@@ -149,6 +201,10 @@ h4 {
     width: 100px;
     height: 40px;
     font-size: 15px;
+  }
+  button {
+    background-color: #5e3203;
+    color: #dc9687;
   }
 
   button:hover {
@@ -164,6 +220,13 @@ h4 {
 
   button:active {
     animation: blink 1s infinite;
+  }
+  #receipt-modal {
+    padding: 40px;
+  }
+  button:hover {
+    background-color: #dc9687;
+    color: #5e3203;
   }
   #receipt-modal {
     padding: 40px;
@@ -229,10 +292,38 @@ h4 {
   }
 
   #cart-container {
+    margin-top: 100px;
+  }
+  #cart-container {
     margin-top: 50px;
     color: #5e3203;
   }
 
+  #cart-container h2 {
+    color: #dc9687;
+  }
+
+  /* ol {
+        list-style-type: none;
+        text-align: center;   
+        display: flex;
+        justify-content: space-between;
+    }
+
+    footer {
+        display: flex;
+        justify-content: space-between;
+        position: sticky;
+        text-align: centered;
+        bottom: 0;
+        left: 0;
+        margin: 0;    
+        padding: 3px;
+        background-color: #5E3203;
+        width: 100vw;
+        color: #DC9687;
+        opacity: 80%;
+    } */
   #cart-container h2 {
     color: #5e3203;
   }
