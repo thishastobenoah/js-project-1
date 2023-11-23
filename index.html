@@ -155,30 +155,37 @@
 
                 <div id="cart-container">
                     <form id="creditCardForm">
-                      <label for="cardNumber">Credit Card Number:</label>
-                      <input
-                        type="number"
-                        id="cardNumber"
-                        name="cardNumber"
-                        placeholder="Enter a 16-digit number"
-                      />
-                      <button type="button" onclick="validateCreditCardNumber()">Submit</button>
+                        <label for="cardNumber">Credit Card Number:</label>
+                        <input
+                            type="number"
+                            id="cardNumber"
+                            name="cardNumber"
+                            placeholder="Enter a 16-digit number"
+                        />
+                        <button type="button" onclick="validateCreditCardNumber()">Submit</button>
                     </form>
-                    <div id="cart-container">
-                  <h2>Shopping Cart</h2>
-                  <button id="view-cart-btn">View Cart</button>
-                  <ul id="cart-items"></ul>
-                  <p id="total-price"></p>
-                  <div id="cart-items-container" style="display: none">
-                    <div>Total Price: $<span id="total-price">0.00</span></div>
-                  </div>
-                  <button id="cash-payment-btn" onclick="processCashPayment()">Pay with Cash</button>
-                  <div id="overlay"></div>
-                    <div id="receipt-modal">
-                        <h2 id="modal-title">Receipt</h2>
-                        <span id="close-modal" style="cursor: pointer;">&times;</span>
+
+                <div id="cart-container">
+                    <h2>Shopping Cart</h2>
+                    <button id="view-cart-btn">View Cart</button>
+                    <ul id="cart-items"></ul>
+                    <p id="total-price"></p>
+
+                <div id="cart-items-container" style="display: none">
+                     <div>Total Price: $<span id="total-price">0.00</span></div>
+                </div>
+
+                <button id="cash-payment-btn" onclick="processCashPayment()">Pay with Cash</button>
+
+                <div id="overlay"></div>
+
+                <div id="receipt-modal">
+                    <h2 id="modal-title">Receipt</h2>
+                    <span id="close-modal" style="cursor: pointer;">&times;</span>
                         <div id="modal-content"></div>
-                    </div>
+                </div>
+
+                
                 </div>
             </main>
 
