@@ -65,6 +65,7 @@ function displayCart() {
 
 const increaseButton = document.createElement("button");
 increaseButton.textContent = "+";
+increaseButton.classList.add("increase-button");
 increaseButton.addEventListener("click", function () {
   increaseQuantity(item);
 });
@@ -73,6 +74,7 @@ listItem.appendChild(increaseButton);
 
 const decreaseButton = document.createElement("button");
 decreaseButton.textContent = "-";
+decreaseButton.classList.add("decrease-button");
 decreaseButton.addEventListener("click", function () {
   decreaseQuantity(item);
 });
@@ -174,12 +176,12 @@ function displayReceipt(paymentMethod, totalAmount, change, amountTendered) {
   const amounts = calculateTotalAmount();
 
   modalContent.innerHTML = `
-    <p style="font-size: 18px;">Payment Method: ${paymentMethod}</p>
-    <p style="font-size: 18px;">Subtotal: $${amounts.subtotal.toFixed(2)}</p>
-    <p style="font-size: 18px;">Sales Tax (6%): $${amounts.salesTax.toFixed(2)}</p>
-    <p style="font-size: 18px;">Total Amount: $${amounts.totalAmount.toFixed(2)}</p>
-    <p style="font-size: 18px;">Amount Tendered: $${amountTendered.toFixed(2)}</p>
-    <p style="font-size: 18px;">Change: $${change.toFixed(2)}</p>
+    <p style="font-size: 15px;">Payment Method: ${paymentMethod}</p>
+    <p style="font-size: 15px;">Subtotal: $${amounts.subtotal.toFixed(2)}</p>
+    <p style="font-size: 15px;">Sales Tax (6%): $${amounts.salesTax.toFixed(2)}</p>
+    <p style="font-size: 15px;">Total Amount: $${amounts.totalAmount.toFixed(2)}</p>
+    <p style="font-size: 15px;">Amount Tendered: $${amountTendered.toFixed(2)}</p>
+    <p style="font-size: 15px;">Change: $${change.toFixed(2)}</p>
   `;
 
   var itemsList = document.createElement("ul");
