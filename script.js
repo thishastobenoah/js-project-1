@@ -63,6 +63,7 @@ function displayCart() {
     const listItem = document.createElement("li");
     listItem.textContent = `${item.name} - Price: $${item.price} - Quantity: ${item.quantity}`;
 
+
 const increaseButton = document.createElement("button");
 increaseButton.textContent = "+";
 increaseButton.classList.add("increase-button");
@@ -70,7 +71,8 @@ increaseButton.addEventListener("click", function () {
   increaseQuantity(item);
 });
 
-listItem.appendChild(increaseButton);
+
+    listItem.appendChild(increaseButton);
 
 const decreaseButton = document.createElement("button");
 decreaseButton.textContent = "-";
@@ -78,13 +80,14 @@ decreaseButton.classList.add("decrease-button");
 decreaseButton.addEventListener("click", function () {
   decreaseQuantity(item);
 });
+n
 
-listItem.appendChild(decreaseButton);
+    listItem.appendChild(decreaseButton);
 
-cartContainer.appendChild(listItem);
-totalPrice += item.price * item.quantity;
-});
-const totalPriceElement = document.createElement("div");
+    cartContainer.appendChild(listItem);
+    totalPrice += item.price * item.quantity;
+  });
+  const totalPriceElement = document.createElement("div");
   cartContainer.appendChild(totalPriceElement);
   totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`;
 }
@@ -102,11 +105,8 @@ function decreaseQuantity(itemName) {
   if(existingItem && existingItem.quantity > 0){
     existingItem.quantity -= 1;
   }
-  cart.forEach((item) => {
-    if(item.quantity <= 0) {
-      cart.pop(item);
-    }
-  });
+  cart = cart.filter((item) => item.quantity > 0);
+  
   displayCart();
 }
 
@@ -117,10 +117,11 @@ function validateCreditCardNumber() {
 
   if (!/^\d{13,16}$/.test(cleanedCardNumber)) {
     console.log("Invalid credit card number.");
-    return;
+    return false;
   }
 
   console.log("The credit card number is valid.");
+  return true;
 }
 
 
@@ -207,3 +208,50 @@ function closeModal() {
   modal.style.display = "none";
   document.getElementById("overlay").style.display = "none";
 }
+
+function togglePaymentForm() {
+  const paymentForm = document.getElementById("paymentForm");
+  paymentForm.style.display = (paymentForm.style.display === "none") ? "block" : "none";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const paymentForm = document.getElementById("paymentForm");
+  // const creditCardForm = document.getElementById("creditCardForm");
+
+  if (paymentForm) {
+    paymentForm.style.display = "none"; // Hide the credit card form initially
+
+    paymentForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      handlePayment();
+    });
+  }
+
+
+  function handlePayment() {
+    // Validate card information
+    const cardNumber = document.getElementById("cardNumber").value;
+    const expirationDate = document.getElementById("expirationDate").value;
+    const cvv = document.getElementById("cvv").value;
+    const isValid = validateCreditCardNumber()
+
+    // console.log(cardNumber);
+    // console.log(expirationDate);
+    // console.log(cvv);
+  
+    if (cardNumber && expirationDate && cvv && isValid) {
+      // Perform payment processing logic here
+      console.log("Payment successful!");
+      clearCart(); // You may want to clear the cart after successful payment
+    } else {
+      console.log("Invalid card information. Please check and try again.");
+    }
+  }
+  
+    function clearCart() {
+      // Clear the cart array and update the display
+      cart = [];
+      displayCart();
+    }
+
+  });
