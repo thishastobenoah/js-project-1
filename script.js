@@ -80,7 +80,6 @@ decreaseButton.classList.add("decrease-button");
 decreaseButton.addEventListener("click", function () {
   decreaseQuantity(item);
 });
-n
 
     listItem.appendChild(decreaseButton);
 
@@ -141,9 +140,9 @@ function processCashPayment() {
     return;
   }
 
-  displayReceipt("Cash", amounts.totalAmount, change, amountTendered);
+  displayReceipt("Cash", change, amountTendered);
 
-  cart = [];
+  clearCart();
   displayCart();
 }
 
@@ -170,7 +169,7 @@ function calculateTotalAmount() {
 }
 
 
-function displayReceipt(paymentMethod, totalAmount, change, amountTendered) {
+function displayReceipt(paymentMethod, change, amountTendered) {
   var modal = document.getElementById("receipt-modal");
   var modalContent = document.getElementById("modal-content");
 
@@ -181,9 +180,16 @@ function displayReceipt(paymentMethod, totalAmount, change, amountTendered) {
     <p style="font-size: 15px;">Subtotal: $${amounts.subtotal.toFixed(2)}</p>
     <p style="font-size: 15px;">Sales Tax (6%): $${amounts.salesTax.toFixed(2)}</p>
     <p style="font-size: 15px;">Total Amount: $${amounts.totalAmount.toFixed(2)}</p>
-    <p style="font-size: 15px;">Amount Tendered: $${amountTendered.toFixed(2)}</p>
-    <p style="font-size: 15px;">Change: $${change.toFixed(2)}</p>
+    
   `;
+
+  if(amountTendered != undefined){
+    modalContent.innerHTML += `<p style="font-size: 15px;">Amount Tendered: $${amountTendered.toFixed(2)}</p>`;
+  }
+
+  if(change != undefined){
+    modalContent.innerHTML += `<p style="font-size: 15px;">Change: $${change.toFixed(2)}</p>`;
+  }
 
   var itemsList = document.createElement("ul");
   cart.forEach((item) => {
@@ -200,8 +206,6 @@ function displayReceipt(paymentMethod, totalAmount, change, amountTendered) {
   document.getElementById("close-modal").addEventListener("click", closeModal);
 }
 
-
-
 function closeModal() {
   var modal = document.getElementById("receipt-modal");
 
@@ -216,10 +220,9 @@ function togglePaymentForm() {
 
 document.addEventListener("DOMContentLoaded", function () {
   const paymentForm = document.getElementById("paymentForm");
-  // const creditCardForm = document.getElementById("creditCardForm");
 
   if (paymentForm) {
-    paymentForm.style.display = "none"; // Hide the credit card form initially
+    paymentForm.style.display = "none";
 
     paymentForm.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -229,27 +232,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   function handlePayment() {
-    // Validate card information
+
     const cardNumber = document.getElementById("cardNumber").value;
     const expirationDate = document.getElementById("expirationDate").value;
     const cvv = document.getElementById("cvv").value;
     const isValid = validateCreditCardNumber()
+    const amounts = calculateTotalAmount();
 
-    // console.log(cardNumber);
-    // console.log(expirationDate);
-    // console.log(cvv);
-  
     if (cardNumber && expirationDate && cvv && isValid) {
-      // Perform payment processing logic here
       console.log("Payment successful!");
-      clearCart(); // You may want to clear the cart after successful payment
+
+      displayReceipt("Card", undefined, undefined)
+      clearCart();
     } else {
       console.log("Invalid card information. Please check and try again.");
     }
   }
   
     function clearCart() {
-      // Clear the cart array and update the display
       cart = [];
       displayCart();
     }
