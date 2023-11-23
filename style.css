@@ -5,17 +5,17 @@
 }
 
 button {
-    background-color: #DC9687;
-    color: #5E3203;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    width: 100px;
-    height: 40px;
-    font-size: 15px;
+  background-color: #dc9687;
+  color: #5e3203;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
   background-color: #dc9687;
   color: #5e3203;
   padding: 10px 20px;
@@ -26,28 +26,27 @@ button {
 }
 
 button:hover {
-    background-color: #5E3203;
-    color: #DC9687;
-    border: 2px solid;
+  background-color: #5e3203;
+  color: #dc9687;
+  border: 2px solid;
 }
 
 @keyframes blink {
-    40% {
-      opacity: 0;
-    }
+  40% {
+    opacity: 0;
+  }
 }
-  
+
 button:active {
-    animation: blink 1s infinite;
+  animation: blink 1s infinite;
 }
 
 #cash-payment-btn {
-    padding: 10px;
-}
+  padding: 10px;
+
   background-color: #5e3203;
   color: #dc9687;
 }
-
 
 .container {
   width: 100vw;
@@ -87,10 +86,10 @@ h3 {
 }
 
 h4 {
-    color: #DC9687;
-    /* font-weight: bold; */
-    margin-top: 10px;
-    margin-bottom: 10px;
+  color: #dc9687;
+  /* font-weight: bold; */
+  margin-top: 10px;
+  margin-bottom: 10px;
   color: #dc9687;
   font-weight: bold;
   margin-top: 10px;
@@ -119,9 +118,9 @@ h4 {
 }
 
 #cart-container {
-    margin-top: 50px;
-    color: #DC9687;
-}
+  margin-top: 50px;
+  color: #dc9687;
+
   margin-top: 100px;
 }
 
@@ -194,38 +193,38 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
-    button {
-        background-color: #5E3203;
-        color: #DC9687;
-        padding: 10px;
-        margin-top: 15px;
-        margin-bottom: 20px;
-        width: 100px;
-        height: 40px;
-        font-size: 15px;
-    }
+  button {
+    background-color: #5e3203;
+    color: #dc9687;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+  }
   button {
     background-color: #5e3203;
     color: #dc9687;
   }
 
-    button:hover {
-        background-color: #DC9687;
-        color: #5E3203;
-        border: 2px solid;
+  button:hover {
+    background-color: #dc9687;
+    color: #5e3203;
+    border: 2px solid;
+  }
+  @keyframes blink {
+    40% {
+      opacity: 0;
     }
-    @keyframes blink {
-        40% {
-          opacity: 0;
-        }
-      }
-      
-      button:active {
-        animation: blink 1s infinite;
-      }
-    #receipt-modal {
-        padding: 40px;
-      }
+  }
+
+  button:active {
+    animation: blink 1s infinite;
+  }
+  #receipt-modal {
+    padding: 40px;
+  }
   button:hover {
     background-color: #dc9687;
     color: #5e3203;
@@ -296,10 +295,10 @@ footer {
   #cart-container {
     margin-top: 100px;
   }
-    #cart-container {
-        margin-top: 50px;
-        color: #5E3203;
-    }
+  #cart-container {
+    margin-top: 50px;
+    color: #5e3203;
+  }
 
   #cart-container h2 {
     color: #dc9687;
@@ -326,7 +325,7 @@ footer {
         color: #DC9687;
         opacity: 80%;
     } */
-    #cart-container h2 {
-        color: #5E3203;
-    }
+  #cart-container h2 {
+    color: #5e3203;
+  }
 }
