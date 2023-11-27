@@ -18,7 +18,7 @@ button {
   font-size: 12px;
 }
 
-button:hover, #cash-payment-btn:hover {
+button:hover, #cash-payment-btn:hover, #card-payment-btn:hover {
   background-color: #5e3203;
   color: #dc9687;
   border: 2px solid;
@@ -34,7 +34,7 @@ button:active {
   animation: blink 1s infinite;
 }
 
-#cash-payment-btn {
+#cash-payment-btn, #card-payment-btn {
   padding: 4px;
   background-color: #dc9687;
   color: #5e3203;
@@ -147,7 +147,7 @@ h4 {
 #view-cart-btn {
   margin: 10px;
 }
-#cash-payment-btn {
+#cash-payment-btn, #card-payment-btn {
     margin: 10px;
 }
 
@@ -181,7 +181,7 @@ h4 {
     height: 30px;
     font-size: 12px;
   }
-  button:hover, #cash-payment-btn:hover {
+  button:hover, #cash-payment-btn:hover, #card-payment-btn:hover {
     background-color: #dc9687;
     color: #5e3203;
     border: 2px solid;
@@ -196,7 +196,7 @@ h4 {
     animation: blink 1s infinite;
   }
 
-  #cash-payment-btn {
+  #cash-payment-btn, #card-payment-btn {
     background-color: #5e3203;
     color: #dc9687;
     padding: 4px;
